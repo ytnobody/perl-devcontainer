@@ -1,0 +1,23 @@
+{
+  "name": "perl5-devcontainer",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/perl-asdf:2": {
+      "version": "5.36.0"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+		"d9705996.perl-toolbox",
+		"bayashi.perlcpanfile",
+		"GitHub.copilot",
+		"GitHub.vscode-pull-request-github"
+	]
+    }
+  },
+  "remoteEnv": {
+    "PATH": "/home/vscode/.asdf/installs/perl/5.36.0/bin:${containerEnv:PATH}",
+    "PERL5LIB": "/home/vscode/.asdf/installs/perl/5.36.0"
+  }
+}
