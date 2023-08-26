@@ -13,7 +13,9 @@
 		"d9705996.perl-toolbox",
 		"bayashi.perlcpanfile",
 		"GitHub.copilot",
-		"GitHub.vscode-pull-request-github"
+		"GitHub.vscode-pull-request-github",
+		"Postman.postman-for-vscode",
+		"evilz.vscode-reveal"
 	]
     }
   },
