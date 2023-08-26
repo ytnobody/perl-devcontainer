@@ -1,0 +1,19 @@
+DROP TABLE IF EXISTS task;
+CREATE TABLE task (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  description TEXT,
+  done BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at INT NOT NULL,
+  updated_at INT NOT NULL
+);
+
+DROP TABLE IF EXISTS action;
+CREATE TABLE action (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  task_id INTEGER NOT NULL,
+  description TEXT NOT NULL,
+  created_at INT NOT NULL,
+  updated_at INT NOT NULL,
+  FOREIGN KEY (task_id) REFERENCES task(id)
+);

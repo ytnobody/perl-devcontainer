@@ -1,25 +1,18 @@
 #!/usr/bin/env perl
 use Mojolicious::Lite -signatures;
+use lib 'lib';
+
+use aliased 'MyToDoApp::Handler::PingHandler';
+use aliased 'MyToDoApp::Handler::TaskHandler';
+use aliased 'MyToDoApp::Handler::ActionHandler';
+
+my $app = app;
+PingHandler->apply($app);
+TaskHandler->apply($app);
+ActionHandler->apply($app);
 
 get '/' => sub ($c) {
-  $c->render(template => 'index');
+  $c->render(json => {message => 'Hello World!'});
 };
 
-get '/json' => sub ($c) {
-  $c->render(json => {text => 'Hello World!'});
-};
-
-app->start;
-__DATA__
-
-@@ index.html.ep
-% layout 'default';
-% title 'Welcome';
-<h1>Welcome to the Mojolicious real-time web framework!</h1>
-
-@@ layouts/default.html.ep
-<!DOCTYPE html>
-<html>
-  <head><title><%= title %></title></head>
-  <body><%= content %></body>
-</html>
+$app->start;
